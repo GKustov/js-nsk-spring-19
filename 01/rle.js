@@ -14,5 +14,29 @@
  * @return {string}
  */
 export function rle(input) {
-
+    let prev = '';
+    let res = '';
+    let count = 0;
+    let i =0;
+    for(; i< input.length; i++)
+    {
+        if(input[i]===prev)
+            ++count;
+        else
+        {
+            addNew();
+        }
+    }
+    addNew();
+    function addNew()
+    {
+        res+=prev;
+            if(count>1)
+            {
+                res+=count.toString();
+            }
+            prev = input[i];
+            count = 1;
+    }
+    return res;
 }
