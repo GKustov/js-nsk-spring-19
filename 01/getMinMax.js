@@ -17,5 +17,15 @@
  * @return {{min: number, max: number}} объект с минимумом и максимумом
  */
 export function getMinMax(input) {
+  const strings = input.split(/[^A-Za-z0-9\.-]+/).filter(val => typeof (parseFloat(val) === 'number'));
 
+  const res = {};
+
+  res.min = Infinity;
+  res.max = -Infinity;
+  strings.forEach(element => {
+    if (parseFloat(element) > res.max) { res.max = parseFloat(element); }
+    if (parseFloat(element) < res.min) { res.min = parseFloat(element); }
+  });
+  return res;
 }
