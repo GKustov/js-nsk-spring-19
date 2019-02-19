@@ -14,5 +14,12 @@
  * @return {number}
  */
 export function multiple(a, b) {
+  let res = 0;
 
+  const plus = (a > 0 && !(b > 0) || b > 0 && !(a > 0)) ? -1 : 1;
+
+  for (let i = 0; i < Math.abs(b); i++) {
+    res += Math.abs(a);
+  }
+  return res * plus;
 }
