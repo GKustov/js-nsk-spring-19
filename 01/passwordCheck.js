@@ -20,5 +20,19 @@
  * @return {boolean}
  */
 export function passwordCheck(password) {
+  const check1 = password.match(/[1-9]/) !== null;
 
+  const up = password.match(/[A-Z]/g);
+
+  const down = password.match(/[a-z]/g);
+
+  const check21 = up !== null && up.length > 1;
+
+  const check22 = down !== null && down.length > 1;
+
+  const check3 = password.match(/[!?.,+*/=]/) !== null;
+
+  const check4 = password.length > 9;
+
+  return (check1 && check21 && check22 && check3 && check4);
 }
