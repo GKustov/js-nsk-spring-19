@@ -13,5 +13,23 @@
  * @param  {string} input
  * @return {string}
  */
+function callback(element, index, words) {
+  if (index > 0) {
+    if (element === words[index - 1]) {
+      this[this.length - 1]++;
+      return false;
+    }
+  }
+  this.push(1);
+  return true;
+}
 export function rle(input) {
+  const words = input.split('');
+
+  const count = [];
+
+  const newArray = words.filter(callback, count);
+
+  for (let i = 0; i < newArray.length; i++) { if (count[i] > 1) { newArray[i] += count[i].toString(); } }
+  return (newArray.join(''));
 }
