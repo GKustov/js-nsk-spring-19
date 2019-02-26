@@ -12,4 +12,25 @@
  * @return {boolean}
  */
 export function anagram(first, second) {
+    function count (acc, el) {
+        acc[el] = (acc[el] || 0) + 1;
+        return acc;
+      };
+
+    let farr = first.toLowerCase().split('').reduce(count, {});
+    let sarr = second.toLowerCase().split('').reduce(count, {});
+    let firstkeys = Object.keys(farr);
+    let secondkeys = Object.keys(sarr);
+    let result = true;
+    if(firstkeys.length === secondkeys.length) {
+        firstkeys.forEach(el => {
+            if(farr[el] !== sarr[el]) {
+                result= false;
+            }
+        });
+    } else {
+        result= false;
+    }
+    return result;
 }
+
