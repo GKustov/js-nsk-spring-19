@@ -14,4 +14,13 @@
  * @return {Function} функция с нужным контекстом
  */
 export function customBind(func, context, ...args) {
+  const boundTargetFunc = func;
+
+  const boundArgs = args;
+
+  return function boundFunc(...argst) {
+    const targetArgs = argst;
+
+    return boundTargetFunc.apply(context, boundArgs.concat(targetArgs));
+  };
 }
