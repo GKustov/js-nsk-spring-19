@@ -12,4 +12,9 @@
  * @return {boolean}
  */
 export function anagram(first, second) {
+  let fres = first.toLowerCase().split('').sort().join();
+
+  let sres = second.toLowerCase().split('').sort().join();
+
+  return fres === sres;
 }
