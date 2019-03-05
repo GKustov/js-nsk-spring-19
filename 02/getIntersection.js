@@ -13,4 +13,30 @@
  * @return {number[]} массив значений, отсортированный по возрастанию
  */
 export function getIntersection(first, second) {
+  function add(el) {
+    if (this.has(el)) {
+      this.set(el, this.get(el) + 1);
+    } else {
+      this.set(el, 1);
+    }
+  }
+  const fmap = new Map();
+
+  const smap = new Map();
+
+  first.map(add, fmap);
+  second.map(add, smap);
+  const result = [];
+
+  fmap.forEach((val, el) => {
+    if (smap.has(el)) {
+      const min = Math.min(smap.get(el), val);
+
+      for (let i = 0; i < min; i++) {
+        result.push(el);
+      }
+    }
+  });
+  result.sort((a, b) => a - b);
+  return result;
 }
