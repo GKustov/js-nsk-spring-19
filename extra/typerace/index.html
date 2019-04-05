@@ -2,10 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>TypeRacer</title>
 </head>
 <body>
-    <!-- Добавить текст и поле ввода -->
+    <div id='dMain'>
+        <div id='dState'>
+            <div id='dLiveContainer'>
+                <span>Жизни:</span>
+                <div class='dLive'></div>
+                <div class='dLive'></div>
+                <div class='dLive'></div>
+            </div>
+            <div id = 'dStateContainer'>
+                <div id='dTimer' ><span>Осталось:</span><span id='sTimer'></span></div>
+                <p id='sSpeed'>Скорость:</p>
+            </div>
+        </div>
+        <div id='dContent'>
+            <div id='dLeft'>
+                <div id='dText'>
+                    <span id='sDone'></span><span id='sPreDone'></span><span id='sWrong'></span><span id='sCurr'></span><span id='sText'>Сейчас появится текст.</span>
+                </div>
+                <input type="text" placeholder="Писать сюда" id="input" oninput="inputBeh()" readonly='true'>
+                <p id='sStart'></p>
+            </div>
+            <div id='dRight'>
+                <input type="button" id='iPause' onclick="pauseBeh()">
+                <div id='dRecord'> </div>
+            </div>
+        </div>
     <script src="./main.js"></script>
 </body>
 </html>
